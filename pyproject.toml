@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taskfence"
+version = "0.1.0.dev0"
+description = "Revocation-safe side effects for long-running AI agent tasks: commit-time authorization in your own database transaction."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Muzeeb Mohammad" }]
+requires-python = ">=3.12"
+dependencies = []          # core uses only the Python standard library
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Topic :: Database",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+postgres = ["psycopg>=3.2"]
+examples = ["mcp>=2.3"]
+
+[project.entry-points.pytest11]
+taskfence = "taskfence.testing.plugin"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

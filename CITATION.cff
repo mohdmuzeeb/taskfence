@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use TaskFence, please cite the paper below."
+title: "TaskFence: revocation-safe side effects for long-running AI agent tasks"
+type: software
+authors:
+  - family-names: Mohammad
+    given-names: Muzeeb
+license: MIT
+version: 0.1.0.dev0
+repository-code: "https://github.com/mohdmuzeeb/taskfence"
+keywords:
+  - authorization
+  - revocation
+  - AI agents
+  - Model Context Protocol
+  - fencing tokens
+# TODO: add `doi:` for the archived research artifact (Zenodo) once it is reserved.
+preferred-citation:
+  type: conference-paper
+  title: "TaskFence: Commit-Time Authorization and Revocation Safety for Long-Running MCP Agent Workflows"
+  authors:
+    - family-names: Mohammad
+      given-names: Muzeeb
+  collection-title: "International Conference on Intelligent Cybernetics Technology & Applications (ICICyTA 2026)"
+  year: 2026
+  # TODO: add `doi:` and pages once the proceedings are published.

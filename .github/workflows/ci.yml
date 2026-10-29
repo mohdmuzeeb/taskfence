@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sqlite:
+    name: SQLite + MCP example (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[test,examples]"
+      - run: python -m pytest -ra
+      - name: Quickstart prints a blocked refund
+        run: python examples/01_quickstart_sqlite.py | tee out.txt && grep -q "refund blocked: STALE_EPOCH" out.txt
+
+  postgres:
+    name: PostgreSQL ${{ matrix.postgres }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        postgres: ["15", "16", "17"]
+    env:
+      TASKFENCE_PG_DSN: postgresql://postgres:test@127.0.0.1:5432/postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      # Started with `docker run` because service containers cannot pass server flags,
+      # and the auditor needs track_commit_timestamp = on.
+      - name: Start PostgreSQL
+        run: |
+          docker run -d --name pg -e POSTGRES_PASSWORD=test -p 127.0.0.1:5432:5432 \
+            postgres:${{ matrix.postgres }} -c track_commit_timestamp=on -c max_connections=200
+          for i in $(seq 1 30); do docker exec pg pg_isready -U postgres && break; sleep 1; done
+      - run: pip install -e ".[test,postgres]"
+      - run: python -m pytest -ra

@@ -21,7 +21,7 @@ classifiers = [
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
-postgres = ["psycopg>=3.2"]
+postgres = ["psycopg[binary]>=3.2"]
 examples = ["mcp>=2.3"]
 
 [project.entry-points.pytest11]

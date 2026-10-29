@@ -6,7 +6,7 @@ authors:
   - family-names: Mohammad
     given-names: Muzeeb
 license: MIT
-version: 0.1.0.dev0
+version: 0.1.0
 repository-code: "https://github.com/mohdmuzeeb/taskfence"
 keywords:
   - authorization

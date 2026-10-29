@@ -272,7 +272,7 @@ The research artifact stays a separate, frozen repository (archived on Zenodo) s
 ## 11. v0.1 release checklist
 
 - [ ] Zenodo DOI for the artifact is reserved and in the camera-ready paper and `CITATION.cff`
-- [ ] S1–S8d, randomized concurrency and mutation tests are green on SQLite and on Postgres 15–17
+- [x] S1–S8d and randomized concurrency tests are green on SQLite and on Postgres 15–17 (CI, 2026-10-29). Automated mutation tests are still to do.
 - [ ] Postgres locking option chosen and the evidence recorded in `docs/RESEARCH.md`
 - [ ] `examples/01` runs with zero configuration; `examples/03` runs against a real MCP client
 - [ ] README, THREAT_MODEL, LIMITATIONS and SECURITY reviewed
@@ -285,7 +285,7 @@ The research artifact stays a separate, frozen repository (archived on Zenodo) s
 1. **Employer IP and outside-work policy.** Confirm that the employment agreement allows publishing this as a personal open-source project. Do this before the first public commit.
 2. **Package name.** Check that `taskfence` is free on PyPI and npm, and reserve it early.
 3. ~~**MCP Python SDK and the Tasks extension.**~~ Resolved 2026-10-28: `mcp` 2.3.0 (protocol 2026-07-28) has a generic `Extension` interface but no `io.modelcontextprotocol/tasks` implementation, and no Python package for it exists on PyPI. `examples/03_mcp_server` therefore uses start-then-poll tools. Native Tasks middleware ships in v0.2 in TypeScript.
-4. ~~**Postgres lock choice.**~~ Resolved: `lock="shared"` with a fair advisory lock (§6, Evidence). Still open: test on Postgres 15 and 17, and on a networked (non-loopback) server.
+4. ~~**Postgres lock choice.**~~ Resolved: `lock="shared"` with a fair advisory lock (§6, Evidence). Postgres 15 and 17 pass the full suite in CI (2026-10-29). Still open: a networked (non-loopback) server.
 5. **Async API.** `asyncpg` / `psycopg` async support in v0.1 or v0.1.x? Many MCP servers are async, which argues for at least `psycopg` async in v0.1.
 
 ## 13. Effort estimate

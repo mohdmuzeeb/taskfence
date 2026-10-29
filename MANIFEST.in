@@ -1,0 +1,5 @@
+include LICENSE README.md CHANGELOG.md CITATION.cff SECURITY.md CONTRIBUTING.md
+recursive-include tests *.py
+recursive-include examples *.py *.md
+recursive-include docs *.md
+global-exclude __pycache__ *.py[cod] *.sqlite*

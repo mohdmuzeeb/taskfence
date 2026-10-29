@@ -12,7 +12,7 @@ Read this before relying on TaskFence or citing its results.
 5. **SQLite: `fence.transaction()` takes the write lock at BEGIN.** One guarded transaction runs at a time per database file. This is SQLite's model, and it is fine for small services. Use PostgreSQL for concurrency.
 6. **PostgreSQL is newer than the paper.**
    - The paper evaluated SQLite only.
-   - The PostgreSQL store is tested on Postgres 16 on one host: race scenarios, three isolation levels, and revocation latency under load. That covers no other versions, no networked servers, and no failover or replicas.
+   - The PostgreSQL store is tested on Postgres 15, 16 and 17: race scenarios, three isolation levels, and revocation latency under load. The tests run in CI on GitHub's Linux runners and locally on macOS, always with a server on the same host. Networked servers, failover and replicas are not tested.
    - Its auditor needs `track_commit_timestamp = on`.
 7. **`Retry` is a real outcome.** Lock timeouts, and serialization failures under REPEATABLE READ or SERIALIZABLE, surface as `Retry`. Nothing committed; the caller decides whether to try again with the same `operation_id`.
 8. **Performance numbers are indicative only.** The latency figures in `DESIGN.md` come from one machine, small N, and loopback connections. They are not an overhead claim.

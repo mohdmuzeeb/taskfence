@@ -1,23 +1,33 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "taskfence"
-version = "0.1.0.dev0"
+version = "0.1.0"
 description = "Revocation-safe side effects for long-running AI agent tasks: commit-time authorization in your own database transaction."
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Muzeeb Mohammad" }]
 requires-python = ">=3.12"
 dependencies = []          # core uses only the Python standard library
+keywords = ["ai-agents", "mcp", "model-context-protocol", "authorization", "revocation", "fencing-token"]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: Pytest",
     "Topic :: Security",
     "Topic :: Database",
 ]
+
+[project.urls]
+Homepage = "https://github.com/mohdmuzeeb/taskfence"
+Documentation = "https://github.com/mohdmuzeeb/taskfence/tree/main/docs"
+Issues = "https://github.com/mohdmuzeeb/taskfence/issues"
+Changelog = "https://github.com/mohdmuzeeb/taskfence/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 test = ["pytest>=8"]

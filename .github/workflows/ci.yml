@@ -28,7 +28,9 @@ jobs:
       - run: pip install -e ".[test,examples]"
       - run: python -m pytest -ra
       - name: Quickstart prints a blocked refund
-        run: python examples/01_quickstart_sqlite.py | tee out.txt && grep -q "refund blocked: STALE_EPOCH" out.txt
+        run: |
+          python examples/01_quickstart_sqlite.py | tee out.txt
+          grep -q "refund blocked: STALE_EPOCH" out.txt
 
   postgres:
     name: PostgreSQL ${{ matrix.postgres }}

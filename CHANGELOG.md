@@ -2,7 +2,7 @@
 
 All notable changes are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/). Before 1.0, minor versions may change the API.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-31
 
 The first release: a library implementation of the commit-time authorization design from *TaskFence: Commit-Time Authorization and Revocation Safety for Long-Running MCP Agent Workflows* (ICICyTA 2026).
 

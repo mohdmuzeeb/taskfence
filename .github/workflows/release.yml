@@ -57,6 +57,9 @@ jobs:
           name: dist
           path: dist/
       - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Republishing a release (e.g. so Zenodo archives it) must not fail on files already uploaded.
+          skip-existing: true
 
   testpypi:
     if: github.event_name == 'workflow_dispatch'

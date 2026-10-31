@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/mohdmuzeeb/taskfence/actions/workflows/ci.yml/badge.svg)](https://github.com/mohdmuzeeb/taskfence/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/taskfence)](https://pypi.org/project/taskfence/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23842363.svg)](https://doi.org/10.5281/zenodo.23842363)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/mohdmuzeeb/taskfence/blob/main/LICENSE)
 
 **Revocation-safe side effects for long-running AI agent tasks.**
@@ -128,7 +129,7 @@ TaskFence is based on peer-reviewed research:
 
 > M. Mohammad, "TaskFence: Commit-Time Authorization and Revocation Safety for Long-Running MCP Agent Workflows," *International Conference on Intelligent Cybernetics Technology & Applications (ICICyTA 2026)*.
 
-If you use TaskFence, please cite the paper. GitHub's "Cite this repository" button uses [CITATION.cff](https://github.com/mohdmuzeeb/taskfence/blob/main/CITATION.cff). The archived research artifact (code, preregistration, wire traces, raw databases) will be linked here once it has a DOI.
+If you use TaskFence, please cite the paper. To cite the software itself, use its Zenodo DOI, [10.5281/zenodo.23842363](https://doi.org/10.5281/zenodo.23842363), which always points to the latest version. GitHub's "Cite this repository" button uses [CITATION.cff](https://github.com/mohdmuzeeb/taskfence/blob/main/CITATION.cff). The archived research artifact (code, preregistration, wire traces, raw databases) will be linked here once it has a DOI.
 
 ## Contributing and security
 

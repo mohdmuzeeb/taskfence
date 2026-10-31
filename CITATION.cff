@@ -7,6 +7,16 @@ authors:
     given-names: Muzeeb
 license: MIT
 version: 0.1.0
+date-released: 2026-10-31
+# Concept DOI: always resolves to the latest archived version.
+doi: 10.5281/zenodo.23842363
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23842363
+    description: All versions (concept DOI)
+  - type: doi
+    value: 10.5281/zenodo.23842364
+    description: Version 0.1.0
 repository-code: "https://github.com/mohdmuzeeb/taskfence"
 keywords:
   - authorization
@@ -14,7 +24,6 @@ keywords:
   - AI agents
   - Model Context Protocol
   - fencing tokens
-# TODO: add `doi:` for the archived research artifact (Zenodo) once it is reserved.
 preferred-citation:
   type: conference-paper
   title: "TaskFence: Commit-Time Authorization and Revocation Safety for Long-Running MCP Agent Workflows"
